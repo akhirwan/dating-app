@@ -23,7 +23,7 @@ func Execute() *App {
 
 	// start http service
 	http := http.ServeHttp(container)
-	go http.Server.Listen(fmt.Sprintf(":%s", container.EnvironmentConfig.App.Port))
+	go http.Fiber.Listen(fmt.Sprintf(":%s", container.EnvironmentConfig.App.Port))
 
 	return &App{
 		Container: container,
