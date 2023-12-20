@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"dating-app/cmd"
+)
 
 func main() {
-	fmt.Println("okokokokoko")
+	cmd.Execute().WithGracefulShutdown()
 }
