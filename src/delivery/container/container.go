@@ -2,7 +2,7 @@ package container
 
 import (
 	"dating-app/src/config"
-	"fmt"
+	"dating-app/src/infrastructure/database"
 	"log"
 )
 
@@ -11,10 +11,16 @@ type Container struct {
 }
 
 func SetupContainer() Container {
-	fmt.Println("Starting new container...")
+	log.Println("Starting new container...")
 
-	fmt.Println("Loading config...")
+	log.Println("Loading config...")
 	config, err := config.LoadENVConfig()
+	if err != nil {
+		log.Panic(err)
+	}
+
+	log.Println("Loading database...")
+	_, err = database.NewPostgreSQLDBConnection(&config.Database)
 	if err != nil {
 		log.Panic(err)
 	}

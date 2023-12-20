@@ -1,9 +1,10 @@
-package cmd
+package app
 
 import (
 	"context"
 	"dating-app/src/delivery/container"
 	"dating-app/src/delivery/http"
+	"fmt"
 	"log"
 	"os"
 	"os/signal"
@@ -22,8 +23,7 @@ func Execute() *App {
 
 	// start http service
 	http := http.ServeHttp(container)
-	// go http.Server.Listen(fmt.Sprintf(":%s", container.EnvironmentConfig.App.Port))
-	go http.Server.Listen(":9000")
+	go http.Server.Listen(fmt.Sprintf(":%s", container.EnvironmentConfig.App.Port))
 
 	return &App{
 		Container: container,

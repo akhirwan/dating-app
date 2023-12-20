@@ -36,9 +36,10 @@ func LoadENVConfig() (config EnvironmentConfig, err error) {
 		Database: database.DatabaseConfig{
 			Dialect:  os.Getenv("DB_DIALECT"),
 			Host:     os.Getenv("DB_HOST"),
-			Name:     os.Getenv("DB_NAME"),
-			Username: os.Getenv("DB_USERNAME"),
+			Port:     os.Getenv("DB_PORT"),
+			User:     os.Getenv("DB_USERNAME"),
 			Password: os.Getenv("DB_PASSWORD"),
+			Database: os.Getenv("DB_NAME"),
 		},
 	}
 
