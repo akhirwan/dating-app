@@ -10,7 +10,7 @@
 
 - After clone this repo, run this codes :
 
-    `go mod init dating-app`
+    `go mod init go-user-app`
     
     `go mod tidy`
 - Run this commands :
